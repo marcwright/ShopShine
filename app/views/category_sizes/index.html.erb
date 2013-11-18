@@ -1,0 +1,29 @@
+<h1>Listing category_sizes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Size</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @category_sizes.each do |category_size| %>
+      <tr>
+        <td><%= category_size.category %></td>
+        <td><%= category_size.size %></td>
+        <td><%= link_to 'Show', category_size %></td>
+        <td><%= link_to 'Edit', edit_category_size_path(category_size) %></td>
+        <td><%= link_to 'Destroy', category_size, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Category size', new_category_size_path %>

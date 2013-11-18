@@ -1,0 +1,25 @@
+<h1>Listing categories</h1>
+
+<%= collection_select :category, :category, @categories, :id, :name %>
+
+<script>
+//only after the page is fully loaded so we so any part of this
+  $(function(){
+
+    var c = $("#category_category");
+
+    c.prepend("<option>SELECT A CHOICE, FOOOL</option>");
+    c[0].selectedIndex = 0;
+
+    c.change(function(){
+        // Stuff to do when the grop-down changes
+      $.get("categories/show_json/" + c.val(), showCoolData)
+
+    });
+
+  });
+
+  function showCoolData(data){
+    alert(data);
+  }
+</script>
