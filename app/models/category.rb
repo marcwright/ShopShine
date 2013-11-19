@@ -3,5 +3,6 @@ class Category < ActiveRecord::Base
   	foreign_key: 'category_id'
   has_many :sub_categories, :class_name => 'Category',
     foreign_key: 'category_id'
-  has_many :sizes, through: :category_size, source: :category
+  has_many :sizes, through: :category_sizes, source: :size
+  has_many :category_sizes
 end

@@ -1,4 +1,6 @@
 ShopShine::Application.routes.draw do
+  resources :users
+
   get 'categories/show_json/:id' => 'categories#show_json'
 
   resources :sizes
