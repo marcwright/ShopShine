@@ -1,0 +1,8 @@
+SELECT c.* FROM category_sizes_users csu INNER JOIN category_sizes cs on csu.category_size_id = cs.id INNER JOIN categories c ON cs.category_id = c.id WHERE csu.user_id = ?;
+
+
+current_user = User.first
+Category.find_by_sql("SELECT c.* FROM category_sizes_users csu INNER JOIN category_sizes cs on csu.category_size_id = cs.id INNER JOIN categories c ON cs.category_id = c.id WHERE csu.user_id = " + current_user.id)
+
+
+Category.find_by_sql("SELECT c.* FROM category_sizes_users csu INNER JOIN category_sizes cs on csu.category_size_id = cs.id INNER JOIN sizes s ON cs.size_id = s.id WHERE csu.user_id = " + current_user.id)

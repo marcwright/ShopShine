@@ -7,9 +7,9 @@ class CategoriesController < ApplicationController
     @categories = Category.where("code IS NOT NULL")
   end
 
-def show_json
-  render json: (HTTParty.get("http://api.shopstyle.com/api/v2/products?pid=uid6596-24043686-75&fts=mens-jeans&amp;fl=s120"))
-end
+  def show_json
+    render json: (HTTParty.get("http://api.shopstyle.com/api/v2/products?pid=uid6596-24043686-75&fts=mens-jeans&amp;fl=s120"))
+  end
 
   # GET /categories/1
   # GET /categories/1.json
