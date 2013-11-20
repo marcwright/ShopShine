@@ -23,6 +23,19 @@
     <%= f.label :salt %><br>
     <%= f.text_field :salt %>
   </div>
+  <div class="CategorySize">
+    <ul><%  @categories.each do |c| %><br>
+    <% if c.sizes.count != 0 %>
+      <li><%= c.name %><br />
+        <% c.sizes.each do |s| %>
+          <%= radio_button_tag 'catsize'+c.id.to_s, s.id %><%= s.name %>
+          <% end %>
+      </li>
+      <% end %>
+  <% end %>
+  </ul>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

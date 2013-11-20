@@ -10,15 +10,26 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @user = User.find(params[:id])
+  end
+
+  def profile
+    @user = User.find(params[:id])
+  end
+
+  def results
   end
 
   # GET /users/new
   def new
     @user = User.new
+    @categories = Category.all
   end
 
   # GET /users/1/edit
   def edit
+     @user = User.find(params[:id])
+     @categories = Category.all
   end
 
   # POST /users

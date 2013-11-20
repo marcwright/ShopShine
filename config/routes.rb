@@ -3,6 +3,12 @@ ShopShine::Application.routes.draw do
 
   get 'categories/show_json/:id' => 'categories#show_json'
 
+  get 'users/profile' => 'users#profile'
+
+  get 'users/results' => 'users#results'
+
+  get 'signup' => 'users#new'
+
   resources :sizes
 
   resources :category_sizes

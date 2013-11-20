@@ -1,0 +1,43 @@
+Choose your Men's Jean Size:
+
+
+<%= form_tag do %>
+
+
+<%# f.select(:project_name, Project.all.map {|p| [p.name,p.id]}, :prompt => "Select a Project") %>
+<select id="jean-size">
+<%= options_for_select([['Choose a Size', 120], ['Small', 120], ['Medium', 127], ['Large', 134], ['XLarge', 141]], :selected => "Choose a Size") %>
+
+<!-- <select name="size" id="size">
+  <option value="120">Small</option>
+  <option value="127">Medium</option>
+  <option value="138">Large</option>
+  <option value="145">XLarge</option>
+</select> -->
+
+</select>
+
+<script>
+$(function(){
+
+$("#jean-size").change(function() {
+location.href = "/items?size=" + $("#jean-size").val();
+
+
+
+});
+
+});
+
+
+</script>
+
+<% @user.category_sizes.each do |c| %>
+
+<p><%= c.category.name %> | <%= c.size.name %></p>
+
+<% end %>
+
+<% link_to items_path( size: 127) %>
+
+<% end %>
