@@ -51,12 +51,14 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
 def update
+    @dude = 0
     @user.update(user_params)
+
     CategorySize.all.each do |cs|
       is_member = false # Start by pessimistically expecting we're not a member
-      params.each do |k, v| 
+      params.each do |k, v|
         if k.index("catsize") == 0  # Make sure it's a group checkbox
-          if cs.id.to_s == k[7..k.length-1]  # Test this group's ID against the checkbox name
+          if cs.category_id.to_s == k[7..k.length-1] && cs.size_id.to_s == v  # Test this group's ID against the checkbox name
             is_member = true  # Got a match!
           end
         end
@@ -71,7 +73,8 @@ def update
       end
     end
     #Head back into the index view
-    redirect_to users_url
+    
+    #redirect_to users_url
   end
 
   # DELETE /users/1
