@@ -50,17 +50,28 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
-  def update
-    respond_to do |format|
-      
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+def update
+    @user.update(user_params)
+    CategorySize.all.each do |cs|
+      is_member = false # Start by pessimistically expecting we're not a member
+      params.each do |k, v| 
+        if k.index("catsize") == 0  # Make sure it's a group checkbox
+          if cs.id.to_s == k[7..k.length-1]  # Test this group's ID against the checkbox name
+            is_member = true  # Got a match!
+          end
+        end
+      end
+      # Do we need to remove them?
+        if(@user.category_sizes.include?(cs) && ! is_member)
+          @user.category_sizes.delete(cs)
+        end
+        # Need to add them?
+        if(! @user.category_sizes.include?(cs) && is_member)
+          @user.category_sizes << cs
       end
     end
+    #Head back into the index view
+    redirect_to users_url
   end
 
   # DELETE /users/1
