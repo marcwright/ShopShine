@@ -12,7 +12,7 @@ class CategorySizesController < ApplicationController
   def show
     # @user = User.find(params[:id])
     @category_sizes = CategorySize.all
-    CategorySize.query_shopify(size_params)
+    # CategorySize.query_shopify(size_params)
   end
 
   # GET /category_sizes/new
