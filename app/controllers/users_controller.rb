@@ -35,6 +35,13 @@ class UsersController < ApplicationController
     @shopresult = CategorySize.query_shopify(params[:id])
     end
 
+     # @msg = { "success" => "true", "message" => "hello"}
+ 
+    # respond_to do |format|
+    #   format.html
+    #   format.json { render json: @shopresult }
+
+
     # @user = User.find(params[:id])
     # @category_sizes = CategorySize.all
     # @results = CategorySize.query_shopify(size_params)
