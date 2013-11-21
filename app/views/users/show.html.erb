@@ -15,5 +15,11 @@
   <%= @user.salt %>
 </p>
 
+<% @user.category_sizes.each do |c| %>
+	
+	<p><%= c.category.name %> | <%= c.size.name %></p>
+
+<% end %>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

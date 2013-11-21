@@ -10,6 +10,9 @@ class CategorySizesController < ApplicationController
   # GET /category_sizes/1
   # GET /category_sizes/1.json
   def show
+    # @user = User.find(params[:id])
+    @category_sizes = CategorySize.all
+    CategorySize.query_shopify(size_params)
   end
 
   # GET /category_sizes/new

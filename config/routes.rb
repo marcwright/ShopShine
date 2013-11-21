@@ -1,11 +1,17 @@
 ShopShine::Application.routes.draw do
+
+  get 'users/results' => 'users#results'
+
+  get 'users/results/:id' => 'users#results'
+
+  get 'users/category_sizes/:categorysizeid' => 'users#show_json'
+
   resources :users
 
   get 'categories/show_json/:id' => 'categories#show_json'
 
-  get 'users/profile' => 'users#profile'
+  # get 'users/profile' => 'users#profile'
 
-  get 'users/results' => 'users#results'
 
   get 'signup' => 'users#new'
 

@@ -1,15 +1,38 @@
 <h1>Results</h1>
 
+
+
+<%= collection_select(:user, :category, @dropdowncategories, :category_size_id, :name) %>
+
+<!-- HOW DO YOU HANDLE THE CHANGE EVENT FROM COLLECTION SELECT USING JQUERY -->
+
+
 <div id="container">
-<% @results['products'].each do |x| %>
+
+
+<% if @shopresult  %>
 
 <p>
+<%= @shopresult['products'].each do |x|  %>
+<p>
+
 <%= x['clickUrl'] %>
 <br/>
 <%= image_tag x['image']['sizes']['IPhone']['url']  %>
-
-
 </p>
 
 <% end %>
+<% end %>
+
+
+<%# @results['products'].each do |x| %>
+
+
+
+
+
+
+
+
+
 </div>

@@ -1,0 +1,17 @@
+
+<h1>Results</h1>
+
+<div id="container">
+<% @results['products'].each do |x| %>
+
+<p>
+	<%= x['clickUrl'] %>
+	<br/>
+	<%= image_tag x['image']['sizes']['IPhone']['url']  %>
+
+
+</p>
+
+<% end %>
+</div>
+

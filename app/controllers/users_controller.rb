@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  # before_action only: [:show, :edit, :update, :destroy]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -17,7 +18,26 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def show_json
+
+    render json: CategorySize.find(params[:categorysizeid]).category.code
+    
+  end
+
+
+  # def resultslist
   def results
+
+    current_user = User.first
+    @dropdowncategories = Category.find_by_sql("SELECT csu.category_size_id, c.name FROM category_sizes_users csu INNER JOIN category_sizes cs on csu.category_size_id = cs.id INNER JOIN categories c ON cs.category_id = c.id WHERE csu.user_id = " + current_user.id.to_s)
+
+    if params[:id]
+    @shopresult = CategorySize.query_shopify(params[:id])
+    end
+
+    # @user = User.find(params[:id])
+    # @category_sizes = CategorySize.all
+    # @results = CategorySize.query_shopify(size_params)
   end
 
   # GET /users/new
@@ -89,6 +109,7 @@ def update
 
   private
     # Use callbacks to share common setup or constraints between actions.
+
     def set_user
       @user = User.find(params[:id])
     end
@@ -97,4 +118,8 @@ def update
     def user_params
       params.require(:user).permit(:email, :hashed_password, :salt)
     end
+
+      #  def size_params
+      # params.permit()
+      # end
 end
