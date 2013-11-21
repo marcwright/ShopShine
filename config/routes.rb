@@ -1,5 +1,8 @@
 ShopShine::Application.routes.draw do
 
+  resources :authentications
+
+
   get 'users/results' => 'users#results'
 
   get 'users/results/:id' => 'users#results'
@@ -14,6 +17,8 @@ ShopShine::Application.routes.draw do
 
 
   get 'signup' => 'users#new'
+
+
 
   resources :sizes
 

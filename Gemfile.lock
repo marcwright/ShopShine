@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/codahale/bcrypt-ruby.git
+  revision: df09e4c73f2f3d9a134b2abf536ca5f159f33075
+  specs:
+    bcrypt-ruby (3.1.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -130,6 +136,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt-ruby!
   better_errors
   coffee-rails (~> 4.0.0)
   httparty (~> 0.12.0)

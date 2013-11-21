@@ -16,13 +16,31 @@
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :hashed_password %><br>
-    <%= f.text_field :hashed_password %>
+    <%= f.label :password %><br>
+    <%= f.text_field :password %>
   </div>
-  <div class="field">
-    <%= f.label :salt %><br>
-    <%= f.text_field :salt %>
+
+    <div class="field">
+    <%= f.label :password_confirmation %><br>
+    <%= f.text_field :password_confirmation %>
   </div>
+
+
+<!-- MODEL
+accepts_nested_attributes_for :category_sizes
+
+
+
+Form_for Fields_for  (categorysizes - radio buttons for each)
+
+c.radio_button -->
+
+
+
+<!--   <div class="field">
+    <%# f.label :salt %><br>
+    <%# f.text_field :salt %>
+  </div> -->
   <div class="CategorySize">
     <ul><%  @categories.each do |c| %><br>
     <% if c.sizes.count != 0 %>

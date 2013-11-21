@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   # def resultslist
   def results
 
-    current_user = User.first
+    # current_user = User.first
     @dropdowncategories = Category.find_by_sql("SELECT csu.category_size_id, c.name FROM category_sizes_users csu INNER JOIN category_sizes cs on csu.category_size_id = cs.id INNER JOIN categories c ON cs.category_id = c.id WHERE csu.user_id = " + current_user.id.to_s)
 
     if params[:id]
@@ -123,7 +123,8 @@ def update
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :hashed_password, :salt)
+      params.require(:user).permit(:email, :password, :password_confirmation)
+      # params.require(:user).permit(:email, :hashed_password, :salt)
     end
 
       #  def size_params

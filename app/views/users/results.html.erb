@@ -3,7 +3,12 @@
 
 
 
-<%= collection_select(:user, :category, @dropdowncategories, :category_size_id, :name, {:selected => params[:id]}) %>
+<%= collection_select(:user, :category, @dropdowncategories, :category_size_id, :name, {:prompt => "Choose a Category"}, {:selected => params[:id]}) %>
+
+
+
+
+
 
 
 
@@ -40,3 +45,6 @@
 
 
 </div>
+
+
+

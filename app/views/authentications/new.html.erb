@@ -1,0 +1,42 @@
+<div id="container">
+
+<!-- </br>
+</br> -->
+
+	<h2> Log in: </h2>
+
+
+<%= form_for @user, {url:"/authentications", method:"post"} do |usr| %>
+<p>
+
+<%= usr.label :email, "Email", placeholder: "email" %>
+
+<%= usr.text_field :email %>
+
+</p>
+
+
+
+<p>
+
+<%= usr.label :password, "Password", placeholder: "password" %>
+
+<%= usr.text_field :password %>
+
+</p>
+
+
+<%# usr.label :salt, "salt", placeholder: "salt" %>
+
+<%# usr.text_field :salt %>
+
+
+<p>
+<%= usr.submit "Log In" %>
+</p>
+
+
+<%end%>
+
+
+<!-- User id: <%# session[:user_id] %> -->

@@ -24,7 +24,15 @@
 
     <%= yield %>
 
-    
+    <br/>
+
+    User id: <%= current_user.id if current_user %>
+     <br/>
+     Email: <%= current_user.email if current_user%>
+  
+
     <%= javascript_include_tag "application" %>
+
+
   </body>
 </html>

@@ -1,0 +1,37 @@
+
+
+	<h1> Log in using an email and password: </h1>
+
+
+<%= form_for @user, {url:"/authentications", method:"post"} do |usr| %>
+<p>
+
+<%= usr.label :email, "Email", placeholder: "email" %>
+
+<%= usr.text_field :email %>
+
+</p>
+
+
+
+<p>
+
+<%= usr.label :password, "Password", placeholder: "password" %>
+
+<%= usr.text_field :password %>
+
+</p>
+
+
+
+
+
+<p>
+<%= usr.submit "Log In" %>
+</p>
+
+
+<%end%>
+
+
+User id: <%= session[:user_id] %>
