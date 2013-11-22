@@ -20,6 +20,8 @@ class CategorySize < ActiveRecord::Base
 
 	end
 
-
+	def size_and_cat_name
+		"#{size.name} #{category.name}"
+	end
 
 end

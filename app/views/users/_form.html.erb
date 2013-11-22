@@ -1,3 +1,4 @@
+<div>
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -25,57 +26,39 @@
     <%= f.text_field :password_confirmation %>
   </div>
 
-
-<!-- MODEL
-accepts_nested_attributes_for :category_sizes
-
-
-
-Form_for Fields_for  (categorysizes - radio buttons for each)
-
-c.radio_button -->
-
-
-<%# form_for @user, url: {action: "create"} do |person_form| %>
-  <%# fields_for @categories.contact_detail do |c| %>
-
-    <%# contact_details_form.text_field :phone_number %>
+ 
+  
+  <%# Category.all.each do |category| %>
+    <%= collection_check_boxes(:user, :category_sizes, CategorySize.all, :id, :size_and_cat_name) %>
   <%# end %>
-<%# end %>
 
-
-<!--   <div class="field">
-    <%# f.label :salt %><br>
-    <%# f.text_field :salt %>
-  </div> -->
-
-
-
-  <div class="CategorySize">
-    <ul>
-      <%#  @categories.each do |c| %>
-
-<%# form_for(@user), url: {action: "create"} do |person_form| %>
-  <%= f.fields_for :category_sizes do |c| %>
-    <br>
-
-    <% if @categories.count != 0 %>
-      <li><%= c.name %><br />
-        <% @categories.each do |s| %>
-          <%= c.radio_button_tag 'catsize'+c.id.to_s, s.id, CategorySize.where(category_id:c.id, size_id:s.id)[0].users.include?(@user) %><%= s.name %>
-          <% end %>
-      </li>
-      <% end %>
-      <% end %>
+  <%#= f.fields_for :category_sizes, CategorySize.all do |cs| %>
+    <%#= cs.label cs.object.size_and_cat_name %>
+    <%#= cs.check_box :id %>
   <%# end %>
-  </ul>
-  </div>
-
-  <%= @dude %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  
 
 
+    
+</div>
+<%= f.submit %>
 <% end %>
+
+<hr>
+
+<div>
+  <%#= form_for @category_size do |f| %>
+  <%# f.collection_select 'category_sizes_id', CategorySize.all, :id,  %>
+  <%# end %>
+
+</div>
+
+<br/>
+  <%# form_for @category_size, url: {controller: 'users', action: 'category_sizes' } do |f| %>
+      <%# @category_sizes.each do |cat| %>
+        <%# f.radio_button :id, cat.id %>
+        <%# f.label "#{cat.category.name} | #{cat.size.name}" %>
+      <%# end %>
+        <%# f.submit %>
+  <%# end %>
+</div>

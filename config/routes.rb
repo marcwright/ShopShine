@@ -2,6 +2,7 @@ ShopShine::Application.routes.draw do
 
   resources :authentications
 
+  post 'users/category_sizes' => 'users#category_sizes'
 
   get 'users/results' => 'users#results'
 
