@@ -14,7 +14,7 @@ def new
 	# if current_user.email
 	if current_user
 		# redirect_to users_url
-		redirect_to root_url
+		redirect_to users_results_url
 	else
 		@user = User.new
 		# redirect_to users_results_url
