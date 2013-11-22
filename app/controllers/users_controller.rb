@@ -54,7 +54,7 @@ class UsersController < ApplicationController
     @categories = Category.all
     @category_sizes = CategorySize.all
     @category_size = CategorySize.new
-    @dropdowncategories = Category.find_by_sql("SELECT csu.category_size_id, c.name FROM category_sizes_users csu INNER JOIN category_sizes cs on csu.category_size_id = cs.id INNER JOIN categories c ON cs.category_id = c.id WHERE csu.user_id = " + current_user.id.to_s)
+    # @dropdowncategories = Category.find_by_sql("SELECT csu.category_size_id, c.name FROM category_sizes_users csu INNER JOIN category_sizes cs on csu.category_size_id = cs.id INNER JOIN categories c ON cs.category_id = c.id WHERE csu.user_id = " + current_user.id.to_s)
 
   end
 

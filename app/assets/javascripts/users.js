@@ -6,7 +6,7 @@ $(document).ready(function () {
   $("#user_category").change(function(event) {
   	console.log(event);
 
-  	window.location = event.target.value;
+  	window.location = "results/" + event.target.value;
 
     // var state = $('select#category_id :selected').val();
     // if(state == "") state="0";
