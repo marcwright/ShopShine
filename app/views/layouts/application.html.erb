@@ -29,6 +29,8 @@
     User id: <%= current_user.id if current_user %>
      <br/>
      Email: <%= current_user.email if current_user%>
+     <br/>
+     <%= link_to "Logout", "/authentications/:id", method: "delete" %>
   
 
     <%= javascript_include_tag "application" %>

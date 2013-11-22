@@ -51,6 +51,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @categories = Category.all
+    @category_sizes = @user.category_sizes
   end
 
   # GET /users/1/edit

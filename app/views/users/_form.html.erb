@@ -36,21 +36,38 @@ Form_for Fields_for  (categorysizes - radio buttons for each)
 c.radio_button -->
 
 
+<%# form_for @user, url: {action: "create"} do |person_form| %>
+  <%# fields_for @categories.contact_detail do |c| %>
+
+    <%# contact_details_form.text_field :phone_number %>
+  <%# end %>
+<%# end %>
+
 
 <!--   <div class="field">
     <%# f.label :salt %><br>
     <%# f.text_field :salt %>
   </div> -->
+
+
+
   <div class="CategorySize">
-    <ul><%  @categories.each do |c| %><br>
-    <% if c.sizes.count != 0 %>
+    <ul>
+      <%#  @categories.each do |c| %>
+
+<%# form_for(@user), url: {action: "create"} do |person_form| %>
+  <%= f.fields_for :category_sizes do |c| %>
+    <br>
+
+    <% if @categories.count != 0 %>
       <li><%= c.name %><br />
-        <% c.sizes.each do |s| %>
-          <%= radio_button_tag 'catsize'+c.id.to_s, s.id, CategorySize.where(category_id:c.id, size_id:s.id)[0].users.include?(@user) %><%= s.name %>
+        <% @categories.each do |s| %>
+          <%= c.radio_button_tag 'catsize'+c.id.to_s, s.id, CategorySize.where(category_id:c.id, size_id:s.id)[0].users.include?(@user) %><%= s.name %>
           <% end %>
       </li>
       <% end %>
-  <% end %>
+      <% end %>
+  <%# end %>
   </ul>
   </div>
 
@@ -59,4 +76,6 @@ c.radio_button -->
   <div class="actions">
     <%= f.submit %>
   </div>
+
+
 <% end %>
