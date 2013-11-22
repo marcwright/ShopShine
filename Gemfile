@@ -46,6 +46,8 @@ end
 # gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'bcrypt-ruby', github: 'codahale/bcrypt-ruby'
 
+gem 'rcov'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
