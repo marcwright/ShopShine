@@ -62,7 +62,7 @@ def destroy
 	# redirect_to root_url,
 	# redirect_to authentications_url,
 	# redirect_to authentications_new_url,
-	redirect_to root_url,
+	redirect_to new_authentication_url,
 	  notice: "You signed out."
 end
 

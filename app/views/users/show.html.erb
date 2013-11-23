@@ -15,6 +15,10 @@
   <%= @user.salt %>
 </p>
 
+<h3>User's Category-Size Setting:</h3>
+<p> <%= @user.category_sizes.to_a %></p>
+
+
 <% @user.category_sizes.each do |c| %>
 	
 	<p><%= c.category.name %> | <%= c.size.name %></p>

@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    @category_sizes = CategorySize.all
   end
 
   # GET /users/1
@@ -51,21 +52,30 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @categories = Category.all
+    @category_sizes = CategorySize.all
+    @category_size = CategorySize.new
+    # @dropdowncategories = Category.find_by_sql("SELECT csu.category_size_id, c.name FROM category_sizes_users csu INNER JOIN category_sizes cs on csu.category_size_id = cs.id INNER JOIN categories c ON cs.category_id = c.id WHERE csu.user_id = " + current_user.id.to_s)
+
   end
 
   # GET /users/1/edit
   def edit
      @user = User.find(params[:id])
      @categories = Category.all
+     @category_sizes = CategorySize.all
+     @category_size = CategorySize.new
   end
 
   # POST /users
   # POST /users.json
   def create
     @user = User.new(user_params)
+    params[:user][:category_sizes].reject {|a| a == ""}.each do |cs|
+      @user.category_sizes << CategorySize.find(cs)
+    end
 
     respond_to do |format|
-      if @user.save
+      if @user.save!
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render action: 'show', status: :created, location: @user }
       else
@@ -114,6 +124,15 @@ def update
     end
   end
 
+  def category_sizes
+    @user = User.find(current_user)
+    @user.category_sizes.push(CategorySize.find(params[:category_size][:id]))
+    redirect_to @user
+  end
+
+
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
 
@@ -127,6 +146,9 @@ def update
       # params.require(:user).permit(:email, :hashed_password, :salt)
     end
 
+    def catsize_params
+       params.require(:category_size).permit(:id)
+    end
       #  def size_params
       # params.permit()
       # end

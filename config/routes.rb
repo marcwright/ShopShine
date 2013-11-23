@@ -2,6 +2,7 @@ ShopShine::Application.routes.draw do
 
   resources :authentications
 
+  post 'users/category_sizes' => 'users#category_sizes'
 
   get 'users/results' => 'users#results'
 
@@ -25,6 +26,8 @@ ShopShine::Application.routes.draw do
   resources :category_sizes
 
   resources :categories
+
+  root to: 'users#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

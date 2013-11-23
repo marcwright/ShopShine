@@ -33,3 +33,9 @@
 <br>
 
 <%= link_to 'New User', new_user_path %>
+
+<ul>
+<% @category_sizes.each do |cat| %>
+   <li><%= cat.id %> | <%= cat.category.name %> | <%= cat.size.name %></li>
+<% end %>
+</ul>
