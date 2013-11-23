@@ -1,42 +1,27 @@
-<div id="container">
+<div class="container">
 
 <!-- </br>
 </br> -->
 
 	<h2> Log in: </h2>
 
+	<form>
+    <div class="row">
+    	<%= form_for @user, {url:"/authentications", method:"post"} do |usr| %>
+      <div class="large-4 columns">
+      	<%= usr.label :email, "Email", placeholder: "email" %>
+		<%= usr.text_field :email %>
+      </div>
 
-<%= form_for @user, {url:"/authentications", method:"post"} do |usr| %>
-<p>
+      <div class="large-4 columns">
+      <%= usr.label :password, "Password", placeholder: "password" %>
+	  <%= usr.text_field :password %>
+	  </div>
+	  </br>
 
-<%= usr.label :email, "Email", placeholder: "email" %>
+	  <%= usr.submit "Log In", class: "button [tiny small large]" %>
+	  
 
-<%= usr.text_field :email %>
-
-</p>
-
-
-
-<p>
-
-<%= usr.label :password, "Password", placeholder: "password" %>
-
-<%= usr.text_field :password %>
-
-</p>
-
-
-<%# usr.label :salt, "salt", placeholder: "salt" %>
-
-<%# usr.text_field :salt %>
-
-
-<p>
-<%= usr.submit "Log In" %>
-</p>
-
-
-<%end%>
-
-
-<!-- User id: <%# session[:user_id] %> -->
+	  <%end%>
+	  </div>
+	  </form>
