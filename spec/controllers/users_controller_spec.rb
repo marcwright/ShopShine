@@ -93,7 +93,7 @@ describe UsersController do
         # Trigger the behavior that occurs when invalid params are submitted
         User.any_instance.stub(:save).and_return(false)
         post :create, {:user => { "email" => "invalid value" }}, valid_session
-        response.should render_template("new")
+        expect render_template("new")
       end
     end
   end
@@ -119,7 +119,7 @@ describe UsersController do
       it "redirects to the user" do
         user = User.create! valid_attributes
         put :update, {:id => user.to_param, :user => valid_attributes}, valid_session
-        response.should redirect_to(user)
+        expect redirect_to(user)
       end
     end
 
@@ -137,7 +137,7 @@ describe UsersController do
         # Trigger the behavior that occurs when invalid params are submitted
         User.any_instance.stub(:save).and_return(false)
         put :update, {:id => user.to_param, :user => { "email" => "invalid value" }}, valid_session
-        response.should render_template("edit")
+        expect render_template("edit")
       end
     end
   end

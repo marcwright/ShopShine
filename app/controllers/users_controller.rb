@@ -57,6 +57,7 @@ class UsersController < ApplicationController
   def edit
      @user = User.find(params[:id])
      @categories = Category.all
+     redirect_to user_url
   end
 
   # POST /users
@@ -101,7 +102,7 @@ def update
     end
     #Head back into the index view
     
-    #redirect_to users_url
+    redirect_to user_url
   end
 
   # DELETE /users/1
