@@ -1,11 +1,8 @@
 <div class="container">
 
-<!-- </br>
-</br> -->
-
 	<h2> Log in: </h2>
 
-	<form>
+	<div>
     <div class="row">
     	<%= form_for @user, {url:"/authentications", method:"post"} do |usr| %>
       <div class="large-4 columns">
@@ -20,8 +17,7 @@
 	  </br>
 
 	  <%= usr.submit "Log In", class: "button [tiny small large]" %>
-	  
 
 	  <%end%>
 	  </div>
-	  </form>
+	  </div>

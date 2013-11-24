@@ -1,6 +1,6 @@
 
 .container{
-	width: 800px;
+	width: 1000px;
 	margin: 10px auto;
 	/*background-color: red;*/
 }
@@ -14,3 +14,17 @@
 .inline {
 	display: inline !important;
 }
+
+.results_container{
+	width: 900px;
+	margin: 10px auto;
+	/*background-color: gray;*/
+	
+}
+
+.results_img{
+	height: 300px;
+	width: 250px;
+	border: 1px solid gray;
+}
+
