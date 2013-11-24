@@ -140,7 +140,7 @@ def update
 
     def set_user
       @user = User.find(params[:id])
-          respond_with (@users)
+          # respond_with (@users)
 
 
     end
