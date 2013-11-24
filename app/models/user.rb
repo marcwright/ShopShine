@@ -24,6 +24,8 @@ validates :email, uniqueness: { case_sensitive: false}
 # validates :password, confirmation: true
 validates :password, confirmation: true
 
+# respond_to .html, .json
+
 # def authenticate(hash_password)
 def authenticate(guesspassword)
 	# self.hash_password ==

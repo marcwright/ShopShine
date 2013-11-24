@@ -13,6 +13,8 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    # respond_with (@users)
+
   end
 
   def profile
@@ -138,6 +140,9 @@ def update
 
     def set_user
       @user = User.find(params[:id])
+          respond_with (@users)
+
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

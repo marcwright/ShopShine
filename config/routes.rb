@@ -1,5 +1,17 @@
 ShopShine::Application.routes.draw do
 
+  namespace :api do
+    resources :users
+  end
+
+  namespace :api do
+    resources :category_sizes
+  end
+
+  namespace :api do
+    resources :category
+  end
+
   resources :authentications
 
   post 'users/category_sizes' => 'users#category_sizes'

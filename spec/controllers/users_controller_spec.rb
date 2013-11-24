@@ -37,6 +37,20 @@ describe UsersController do
       assigns(:users).should eq([user])
     end
   end
+  context 'when json' do
+    it 'returns a json document' do
+      user = User.create! valid_attributes
+      get :index, {format: 'json'}, valid_session
+      expect(JSON.parse(response.body).first['name']).to eq("MyString")
+    end
+  end
+
+  describe "GET results" do
+    it "assigns shop result query as shopresult" do
+      get :results, {}, valid_session
+      assigns(:shopresult).should be_a_new(Category)
+    end
+  end
 
   describe "GET show" do
     it "assigns the requested user as @user" do
