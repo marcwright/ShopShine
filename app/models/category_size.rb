@@ -16,7 +16,7 @@ class CategorySize < ActiveRecord::Base
 		categorycode = CategorySize.find(size_param).category.code
 		sizecode = CategorySize.find(size_param).size.code
 
-		HTTParty.get(query+"&fts=#{categorycode}&fl=#{sizecode}&limit=10") 
+		HTTParty.get(query+"&fts=#{categorycode}&fl=#{sizecode}&limit=9") 
 
 	end
 

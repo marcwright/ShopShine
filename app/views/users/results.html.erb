@@ -11,8 +11,9 @@
 	<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-3">
 		<% @shopresult['products'].each do |x|  %>
 	 	<li><a href="<%= x['clickUrl'] %>"><%= image_tag x['image']['sizes']['IPhone']['url'], class: "results_img"  %></a>
-	  		<a href="<%= x['clickUrl'] %>"><%= x['name'] %></a>
-	  		<a href="<%= x['clickUrl'] %>">$<%= x['price'] %></a></li>
+
+	  		<p><a href="<%= x['clickUrl'] %>"><%= x['name'] %></a></p>
+	  		<p><a href="<%= x['clickUrl'] %>">$<%= x['price'] %></a></p></li>
 	<% end %>
 	<% end %>
 	</ul>
