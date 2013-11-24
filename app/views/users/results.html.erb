@@ -1,48 +1,22 @@
 <h1>Results</h1>
 
-
-
-
 <%= collection_select(:user, :category, @dropdowncategories, :category_size_id, :name, {:prompt => "Choose a Category"}, {:selected => params[:id]}) %>
-
-
-
-
-
-
-
 
 <!-- HOW DO YOU HANDLE THE CHANGE EVENT FROM COLLECTION SELECT USING JQUERY -->
 
 
-<div id="container">
+<div class="results_container">
 
+	<% if @shopresult  %>
+	<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-3">
+		<% @shopresult['products'].each do |x|  %>
+	 	<li><a href="<%= x['clickUrl'] %>"><%= image_tag x['image']['sizes']['IPhone']['url'], class: "results_img"  %></a>
 
-<% if @shopresult  %>
-
-<p>
-<% @shopresult['products'].each do |x|  %>
-<p>
-
-
-<br/>
-
- <a href="<%= x['clickUrl'] %>"><%= image_tag x['image']['sizes']['IPhone']['url']  %></a>
-
-</br>
-  <a href="<%= x['clickUrl'] %>"><%= x['name'] %></a>
-</br>
-
-  <a href="<%= x['clickUrl'] %>">$<%= x['price'] %></a>
-
-
-</p>
-
-<% end %>
-<% end %>
-
-
-
+	  		<p><a href="<%= x['clickUrl'] %>"><%= x['name'] %></a></p>
+	  		<p><a href="<%= x['clickUrl'] %>">$<%= x['price'] %></a></p></li>
+	<% end %>
+	<% end %>
+	</ul>
 
 </div>
 

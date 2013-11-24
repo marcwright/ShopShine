@@ -14,7 +14,7 @@
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
-
+    <%# stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
     <%= csrf_meta_tags %>
@@ -22,48 +22,19 @@
 
   <body>
 
-
-
-  <nav> 
-
-    <ul class="nav nav-tabs">
-      <!-- <li class="/"><a href="#">Home</a></li> -->
-      
-
-      <% if !current_user %>
-      <!-- <li><a href="/">Home</a></li> -->
-    <li><a href="/authentications/new">Login</a></li>
-    <li><a href="/users/new">Join</a></li>
-    <% end %>
-
-      <% if current_user %>
-      <li><a href="/users/<%=current_user.id %>/edit">Settings</a></li>
-      <!-- <li><a href="users/<%#current_user.id %>/users/show">New</a></li> -->
-      <!-- <li><%# link_to "New Triggers", new_user_trigger_url(current_user) %></li> -->
-<!--      <li><a href="../../users/<%# current_user.id %>/triggers/new">New</a></li> -->
-      <li><a href="/users/results">Results</a></li>
-
-        <li><%= link_to "Logout", "/authentications/:id", method: "delete" %></li>
-    <!-- <li><%# link_to "Logout", "/authentications/:id", method: "delete" %></li> -->
-
-    <% end %>
-
-  </ul>
-
-
+  <%= render 'layouts/header' %>
+  <div class ="container">
     <%= yield %>
 
     <br/>
-
     User id: <%= current_user.id if current_user %>
-     <br/>
-     Email: <%= current_user.email if current_user%>
-     <br/>
+    <br/>
+    Email: <%= current_user.email if current_user%>
+    <br/>
    
   
-
     <%= javascript_include_tag "application" %>
 
-
+  </div>
   </body>
 </html>

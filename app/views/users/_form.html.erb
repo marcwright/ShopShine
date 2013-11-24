@@ -1,4 +1,5 @@
-<div>
+<div class = "container">
+
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -12,53 +13,43 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.text_field :password %>
-  </div>
+  <form>
+    <div class="row">
+      <div class="large-8 columns">
+      <%= f.label :email %><br>
+      <%= f.text_field :email %>
+      </div>
 
-    <div class="field">
-    <%= f.label :password_confirmation %><br>
-    <%= f.text_field :password_confirmation %>
-  </div>
+      <div class="large-8 columns">
+      <%= f.label :password %><br>
+      <%= f.text_field :password %>
+      </div>
 
- 
+      <div class="large-8 columns">
+      <%= f.label :password_confirmation %><br>
+      <%= f.text_field :password_confirmation %>
+      </div>
+
+      <div class="large-8 columns">
+      </div>
+    </div>
+
+    </br>
+
+    <div class="collection_div">
+        <%= collection_check_boxes(:user, :category_sizes, CategorySize.all, :id, :size_and_cat_name) do |b| %>
+          <div>
+          <%= b.check_box(class: "inline") %>
+          <%= b.label(class: "inline") %>
+          </div>
+          <% end %>
+      </div>
+      </br>
+
+      <%= f.submit nil, class: "button [tiny small large]" %>
+      <% end %>
+    </div>
+  </form>
   
-  <%# Category.all.each do |category| %>
-    <%= collection_check_boxes(:user, :category_sizes, CategorySize.all, :id, :size_and_cat_name) %>
-  <%# end %>
 
-  <%#= f.fields_for :category_sizes, CategorySize.all do |cs| %>
-    <%#= cs.label cs.object.size_and_cat_name %>
-    <%#= cs.check_box :id %>
-  <%# end %>
   
-
-
-    
-</div>
-<%= f.submit %>
-<% end %>
-
-<hr>
-
-<div>
-  <%#= form_for @category_size do |f| %>
-  <%# f.collection_select 'category_sizes_id', CategorySize.all, :id,  %>
-  <%# end %>
-
-</div>
-
-<br/>
-  <%# form_for @category_size, url: {controller: 'users', action: 'category_sizes' } do |f| %>
-      <%# @category_sizes.each do |cat| %>
-        <%# f.radio_button :id, cat.id %>
-        <%# f.label "#{cat.category.name} | #{cat.size.name}" %>
-      <%# end %>
-        <%# f.submit %>
-  <%# end %>
-</div>
