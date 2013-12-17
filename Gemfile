@@ -46,6 +46,11 @@ end
 # gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'bcrypt-ruby', github: 'codahale/bcrypt-ruby'
 
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
 # gem 'rcov'
 
 # Use unicorn as the app server
